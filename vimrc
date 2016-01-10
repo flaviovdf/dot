@@ -72,7 +72,7 @@ autocmd bufenter *
 
 " Tags
 map <F3> :TagbarToggle<CR>
-let g:tagbar_width=25
+let g:tagbar_width=23
 
 " Autocomplete
 let g:deoplete#enable_at_startup = 1
