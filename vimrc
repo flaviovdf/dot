@@ -33,7 +33,6 @@ execute pathogen#infect()
 " indent options
 set autoindent
 filetype plugin indent on
-autocmd FileType text setlocal textwidth=80 " 80 cols in text files
 
 " these lines makes vim return the cursor to last file position
 autocmd BufReadPost *
@@ -86,11 +85,29 @@ let g:go_doc_keywordprg_enabled = 0
 " Buffers
 map <c-d> :Bdelete<CR>
 
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height = 3
+
 " Airline
-let g:bufferline_echo = 0
-autocmd VimEnter *
-    \ let &statusline='%{bufferline#refresh_status()}'
-    \ .bufferline#get_status_string()
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <c-1> <Plug>AirlineSelectTab1
+nmap <c-2> <Plug>AirlineSelectTab2
+nmap <c-3> <Plug>AirlineSelectTab3
+nmap <c-4> <Plug>AirlineSelectTab4
+nmap <c-5> <Plug>AirlineSelectTab5
+nmap <c-6> <Plug>AirlineSelectTab6
+nmap <c-7> <Plug>AirlineSelectTab7
+nmap <c-8> <Plug>AirlineSelectTab8
+nmap <c-9> <Plug>AirlineSelectTab9
+
 
 "  Modelines
 set modeline
