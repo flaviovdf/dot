@@ -97,18 +97,11 @@ let g:syntastic_loc_list_height = 3
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-nmap <c-1> <Plug>AirlineSelectTab1
-nmap <c-2> <Plug>AirlineSelectTab2
-nmap <c-3> <Plug>AirlineSelectTab3
-nmap <c-4> <Plug>AirlineSelectTab4
-nmap <c-5> <Plug>AirlineSelectTab5
-nmap <c-6> <Plug>AirlineSelectTab6
-nmap <c-7> <Plug>AirlineSelectTab7
-nmap <c-8> <Plug>AirlineSelectTab8
-nmap <c-9> <Plug>AirlineSelectTab9
-
+let g:airline#extensions#tabline#buffer_idx_mode = 0
 
 "  Modelines
 set modeline
 set modelines=5
+
+set wildmenu
+nnoremap gb :ls<CR>:b<Space>
