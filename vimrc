@@ -10,6 +10,8 @@ set scrolloff=3
 set showmode
 set hidden
 set t_Co=256
+
+" Mouse options
 set mouse=a
 
 " Syntax options
@@ -85,6 +87,17 @@ let g:go_doc_keywordprg_enabled = 0
 " Buffers
 map <c-d> :Bdelete<CR>
 
+" CtrlP
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+map ; :CtrlPBuffer<CR>
+
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -98,10 +111,6 @@ let g:syntastic_loc_list_height = 3
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 0
-
-"  Modelines
-set modeline
-set modelines=5
 
 set wildmenu
 nnoremap gb :ls<CR>:b<Space>
