@@ -97,6 +97,7 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
 map ; :CtrlPBuffer<CR>
+set wildmenu
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -111,6 +112,3 @@ let g:syntastic_loc_list_height = 3
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 0
-
-set wildmenu
-nnoremap gb :ls<CR>:b<Space>
