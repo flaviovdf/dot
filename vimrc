@@ -53,6 +53,7 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=80
+autocmd BufRead,BufNewFile *.tex set colorcolumn=0
 
 " Helper for python code
 autocmd BufRead *.py set smartindent 
@@ -66,7 +67,7 @@ autocmd BufRead,BufNewFile *.tex set spell spelllang=en_us
 set modifiable
 autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
 map <F2> :NERDTreeToggle<CR>
-autocmd bufenter * 
+ autocmd bufenter * 
     \ if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | 
     \    q | 
     \ endif
@@ -108,6 +109,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 3
+let g:syntastic_tex_checkers=['']
+let g:syntastic_python_checkers=['']
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
