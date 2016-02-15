@@ -60,21 +60,22 @@ autocmd BufRead *.py set smartindent
     \ cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 " Helper for latex
-autocmd BufRead,BufNewFile *.tex set spell
-autocmd BufRead,BufNewFile *.tex set spell spelllang=en_us
+autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst set spell
+autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst set spell spelllang=en_us
 
 " NERDTree
 set modifiable
-autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
+"autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
 map <F2> :NERDTreeToggle<CR>
- autocmd bufenter * 
-    \ if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | 
-    \    q | 
-    \ endif
+" autocmd bufenter * 
+"    \ if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | 
+"    \    q | 
+"    \ endif
+let NERDTreeQuitOnOpen = 1
 
 " Tags
 map <F3> :TagbarToggle<CR>
-let g:tagbar_width=23
+let g:tagbar_width=30
 
 " Autocomplete
 let g:deoplete#enable_at_startup = 1
