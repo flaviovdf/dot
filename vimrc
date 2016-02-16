@@ -12,7 +12,7 @@ set hidden
 set t_Co=256
 
 " Mouse options
-set mouse=a
+set mouse=
 
 " Syntax options
 syntax on
@@ -67,11 +67,11 @@ autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst set spell spelllang=en_us
 set modifiable
 "autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
 map <F2> :NERDTreeToggle<CR>
-" autocmd bufenter * 
-"    \ if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | 
-"    \    q | 
-"    \ endif
-let NERDTreeQuitOnOpen = 1
+ autocmd bufenter * 
+    \ if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | 
+    \    q | 
+    \ endif
+let NERDTreeQuitOnOpen = 0
 
 " Tags
 map <F3> :TagbarToggle<CR>
