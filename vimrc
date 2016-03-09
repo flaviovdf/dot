@@ -90,10 +90,10 @@ let g:go_doc_keywordprg_enabled = 0
 map <c-d> :Bdelete<CR>
 
 " CtrlP
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.class
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'file': '\v\.(exe|so|dll|class)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
 let g:ctrlp_match_window_bottom = 0
@@ -112,6 +112,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 3
 let g:syntastic_tex_checkers=['']
 let g:syntastic_python_checkers=['']
+let g:syntastic_java_checkers=['']
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
