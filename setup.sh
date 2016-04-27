@@ -1,3 +1,5 @@
+ln -s $HOME/dot/bashrc $HOME/.bashrc
+
 ln -s $HOME/dot/vim $HOME/.vim
 ln -s $HOME/dot/vimrc $HOME/.vimrc
 if [ ! -e $HOME/.config/ ]; then
