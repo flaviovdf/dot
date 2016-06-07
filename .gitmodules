@@ -25,3 +25,6 @@
 [submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "vim/bundle/deoplete-go"]
+	path = vim/bundle/deoplete-go
+	url = https://github.com/zchee/deoplete-go.git
