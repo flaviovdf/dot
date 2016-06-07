@@ -248,7 +248,10 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  )
+
+  (setq-default neo-show-hidden-files nil)
+  (setq-default neo-smart-open t)
+ )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -257,7 +260,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (setq linum-format "%d \u2502 ")
+  (setq linum-format "%3d \u2502 ")
   (global-linum-mode)
 
   (global-set-key [f2] 'neotree-toggle)
@@ -269,9 +272,7 @@ you should place your code here."
   (auto-fill-mode t)
   (toggle-fill-column-indicator)
 
-  ;;(setq-default projectile-switch-project-action 'neotree-projectile-action)
-  ;;(setq-default neo-smart-open t)
-  )
+ )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
