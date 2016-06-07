@@ -53,7 +53,6 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=80
-autocmd BufRead,BufNewFile *.tex set colorcolumn=0
 
 " Helper for python code
 autocmd BufRead *.py set smartindent 
@@ -62,6 +61,10 @@ autocmd BufRead *.py set smartindent
 " Helper for latex
 autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst set spell
 autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst set spell spelllang=en_us
+" autocmd BufRead,BufNewFile *.tex set colorcolumn=0
+
+" Brasil spell checking
+ca Br setlocal spell spelllang=pt_br
 
 " NERDTree
 set modifiable
