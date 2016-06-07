@@ -53,7 +53,7 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=80
-autocmd BufRead,BufNewFile *.tex set colorcolumn=0
+" autocmd BufRead,BufNewFile *.tex set colorcolumn=0
 
 " Helper for python code
 autocmd BufRead *.py set smartindent 
@@ -98,6 +98,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_max_files = 0
 map ; :CtrlPBuffer<CR>
 set wildmenu
 
@@ -110,6 +111,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 3
+let g:syntastic_go_checkers=['go']
 let g:syntastic_tex_checkers=['']
 let g:syntastic_python_checkers=['']
 let g:syntastic_java_checkers=['']
