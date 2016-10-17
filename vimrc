@@ -55,10 +55,7 @@ set nolist  " list disables linebreak
 set textwidth=79
 set formatoptions-=t
 set colorcolumn=80
-<<<<<<< HEAD
-=======
 " autocmd BufRead,BufNewFile *.tex set colorcolumn=0
->>>>>>> 779ff4aba6e90867279f6396eeafddcbefe5dd91
 
 " Helper for python code
 autocmd BufRead *.py set smartindent 
