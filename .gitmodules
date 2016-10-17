@@ -28,3 +28,6 @@
 [submodule "vim/bundle/deoplete-go"]
 	path = vim/bundle/deoplete-go
 	url = https://github.com/zchee/deoplete-go.git
+[submodule "vim/bundle/deoplete-jedi"]
+	path = vim/bundle/deoplete-jedi
+	url = https://github.com/zchee/deoplete-jedi.git
