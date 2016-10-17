@@ -31,3 +31,6 @@
 [submodule "vim/bundle/dbext.vim"]
 	path = vim/bundle/dbext.vim
 	url = https://github.com/vim-scripts/dbext.vim.git
+[submodule "vim/bundle/deoplete-jedi"]
+	path = vim/bundle/deoplete-jedi
+	url = https://github.com/zchee/deoplete-jedi.git

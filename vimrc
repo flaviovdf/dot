@@ -55,7 +55,10 @@ set nolist  " list disables linebreak
 set textwidth=79
 set formatoptions-=t
 set colorcolumn=80
+<<<<<<< HEAD
+=======
 " autocmd BufRead,BufNewFile *.tex set colorcolumn=0
+>>>>>>> 779ff4aba6e90867279f6396eeafddcbefe5dd91
 
 " Helper for python code
 autocmd BufRead *.py set smartindent 
@@ -64,6 +67,10 @@ autocmd BufRead *.py set smartindent
 " Helper for latex
 autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst set spell
 autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst set spell spelllang=en_us
+" autocmd BufRead,BufNewFile *.tex set colorcolumn=0
+
+" Brasil spell checking
+ca Br setlocal spell spelllang=pt_br
 
 " NERDTree
 set modifiable
