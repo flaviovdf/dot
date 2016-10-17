@@ -1,11 +1,11 @@
 " Common options
 set nocompatible
 set encoding=utf-8
-set nobackup		" do not keep a backup file, use versions instead
-set history=50		" keep 50 lines of command line history
-set ruler		    " show the cursor position all the time
-set showcmd		    " display incomplete commands
-set incsearch		" do incremental searching
+set nobackup    " do not keep a backup file, use versions instead
+set history=50  " keep 50 lines of command line history
+set ruler       " show the cursor position all the time
+set showcmd     " display incomplete commands
+set incsearch   " do incremental searching
 set scrolloff=3
 set showmode
 set hidden
@@ -50,8 +50,10 @@ set cpoptions+=n
 
 " Make Vim to handle long lines nicely.
 set wrap
+" set linebreak
+set nolist  " list disables linebreak
 set textwidth=79
-set formatoptions=qrn1
+set formatoptions-=t
 set colorcolumn=80
 " autocmd BufRead,BufNewFile *.tex set colorcolumn=0
 
