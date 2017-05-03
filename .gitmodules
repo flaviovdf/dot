@@ -34,3 +34,6 @@
 [submodule "vim/bundle/deoplete-jedi"]
 	path = vim/bundle/deoplete-jedi
 	url = https://github.com/zchee/deoplete-jedi.git
+[submodule "vim/bundle/vim-python-pep8-indent"]
+	path = vim/bundle/vim-python-pep8-indent
+	url = https://github.com/Vimjas/vim-python-pep8-indent.git

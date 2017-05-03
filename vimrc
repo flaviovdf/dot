@@ -11,6 +11,10 @@ set showmode
 set hidden
 set t_Co=256
 
+" Neovim
+let g:python_host_prog = '/home/flaviovdf/anaconda3/envs/neovim2/bin/python'
+let g:python3_host_prog = '/home/flaviovdf/anaconda3/envs/neovim3/bin/python'
+
 " Mouse options
 set mouse=
 
@@ -21,9 +25,9 @@ colorscheme neon
 set background=dark
 
 " tab options
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set smarttab
 set expandtab
 set backspace=indent,eol,start
@@ -58,8 +62,14 @@ set colorcolumn=80
 " autocmd BufRead,BufNewFile *.tex set colorcolumn=0
 
 " Helper for python code
-autocmd BufRead *.py set smartindent 
-    \ cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set tabstop=4
+autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set softtabstop=4
+autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set shiftwidth=4
+autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set textwidth=79
+autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set expandtab
+autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set autoindent
+autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set fileformat=unix
+autocmd BufWritePre * %s/\s\+$//e
 
 " Helper for latex
 autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst set spell
@@ -73,9 +83,9 @@ ca Br setlocal spell spelllang=pt_br
 set modifiable
 "autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
 map <F2> :NERDTreeToggle<CR>
- autocmd bufenter * 
-    \ if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | 
-    \    q | 
+ autocmd bufenter *
+    \ if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |
+    \    q |
     \ endif
 let NERDTreeQuitOnOpen = 0
 
@@ -119,7 +129,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 3
 let g:syntastic_go_checkers=['go']
 let g:syntastic_tex_checkers=['']
-let g:syntastic_python_checkers=['']
+let g:syntastic_python_checkers=['flake8']
 let g:syntastic_java_checkers=['']
 
 " Airline
