@@ -68,7 +68,6 @@ autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set shiftwidth=4
 autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set textwidth=79
 autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set expandtab
 autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set autoindent
-autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set fileformat=unix
 autocmd BufWritePre * %s/\s\+$//e
 
 " Helper for latex
