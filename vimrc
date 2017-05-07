@@ -59,6 +59,9 @@ set colorcolumn=80
 autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set tabstop=4
 autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set softtabstop=4
 autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set shiftwidth=4
+autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set textwidth=79
+autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set expandtab
+autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set autoindent
 
 " Helper for latex
 autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst setl spell
