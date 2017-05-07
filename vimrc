@@ -11,10 +11,6 @@ set showmode
 set hidden
 set t_Co=256
 
-" Neovim
-let g:python_host_prog = '/home/flaviovdf/anaconda3/envs/neovim2/bin/python'
-let g:python3_host_prog = '/home/flaviovdf/anaconda3/envs/neovim3/bin/python'
-
 " Mouse options
 set mouse=
 
@@ -24,7 +20,7 @@ set hlsearch
 colorscheme neon
 set background=dark
 
-" tab options
+" Tab options
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -32,9 +28,8 @@ set smarttab
 set expandtab
 set backspace=indent,eol,start
 
-" Pathogen
-set nocp
-execute pathogen#infect()
+" Buffers
+map <c-d> :Bdelete<CR>
 
 " indent options
 set autoindent
@@ -54,12 +49,11 @@ set cpoptions+=n
 
 " Make Vim to handle long lines nicely.
 set wrap
-" set linebreak
+set linebreak
 set nolist  " list disables linebreak
 set textwidth=79
 set formatoptions-=t
 set colorcolumn=80
-" autocmd BufRead,BufNewFile *.tex set colorcolumn=0
 
 " Helper for python code
 autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set tabstop=4
@@ -68,15 +62,24 @@ autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set shiftwidth=4
 autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set textwidth=79
 autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set expandtab
 autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set autoindent
-autocmd BufWritePre * %s/\s\+$//e
 
 " Helper for latex
-autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst set spell
-autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst set spell spelllang=en_us
+autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst setl spell
+autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst setl spell spelllang=en_us
+autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst setl noautoindent
 " autocmd BufRead,BufNewFile *.tex set colorcolumn=0
+
+" Remove Blanks
+autocmd BufWritePre * %s/\s\+$//e
 
 " Brasil spell checking
 ca Br setlocal spell spelllang=pt_br
+
+" Pathogen based plugin configs from here on
+
+" Pathogen
+set nocp
+execute pathogen#infect()
 
 " NERDTree
 set modifiable
@@ -100,9 +103,6 @@ set completeopt-=preview
 " vim-go
 let g:go_fmt_autosave = 0
 let g:go_doc_keywordprg_enabled = 0
-
-" Buffers
-map <c-d> :Bdelete<CR>
 
 " CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.class
@@ -129,8 +129,12 @@ let g:syntastic_loc_list_height = 3
 let g:syntastic_go_checkers=['go']
 let g:syntastic_tex_checkers=['']
 let g:syntastic_python_checkers=['flake8']
-let g:syntastic_java_checkers=['']
+" let g:syntastic_java_checkers=['']
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 0
+
+" Neovim
+let g:python_host_prog = '/home/flaviovdf/anaconda3/envs/neovim2/bin/python'
+let g:python3_host_prog = '/home/flaviovdf/anaconda3/envs/neovim3/bin/python'
