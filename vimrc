@@ -1,15 +1,19 @@
 " Common options
 set nocompatible
 set encoding=utf-8
-set nobackup		" do not keep a backup file, use versions instead
-set history=50		" keep 50 lines of command line history
-set ruler		    " show the cursor position all the time
-set showcmd		    " display incomplete commands
-set incsearch		" do incremental searching
+set nobackup    " do not keep a backup file, use versions instead
+set history=50  " keep 50 lines of command line history
+set ruler       " show the cursor position all the time
+set showcmd     " display incomplete commands
+set incsearch   " do incremental searching
 set scrolloff=3
 set showmode
 set hidden
 set t_Co=256
+
+" Neovim
+let g:python_host_prog = '/home/flaviovdf/anaconda3/envs/neovim2/bin/python'
+let g:python3_host_prog = '/home/flaviovdf/anaconda3/envs/neovim3/bin/python'
 
 " Mouse options
 set mouse=
@@ -50,17 +54,18 @@ set cpoptions+=n
 
 " Make Vim to handle long lines nicely.
 set wrap
+set linebreak
+set nolist  " list disables linebreak
 set textwidth=79
-set formatoptions=qrn1
+set formatoptions-=t
 set colorcolumn=80
-" autocmd BufRead,BufNewFile *.tex set colorcolumn=0
 
 " Helper for python code
-autocmd BufRead *.py,*.pyx,*.pxd set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd BufRead *.py,*.pyx,*.pxd set tabstop=4
-autocmd BufRead *.py,*.pyx,*.pxd set softtabstop=4
-autocmd BufRead *.py,*.pyx,*.pxd set shiftwidth=4
-autocmd BufWritePre *.py,*.pyx,*.pxd :%s/\s\+$//e
+autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set tabstop=4
+autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set softtabstop=4
+autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set shiftwidth=4
+
+autocmd BufWritePre * %s/\s\+$//e
 
 " Helper for latex
 autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst setl spell
@@ -75,9 +80,9 @@ ca Br setlocal spell spelllang=pt_br
 set modifiable
 "autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
 map <F2> :NERDTreeToggle<CR>
- autocmd bufenter * 
-    \ if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | 
-    \    q | 
+ autocmd bufenter *
+    \ if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |
+    \    q |
     \ endif
 let NERDTreeQuitOnOpen = 0
 
@@ -120,9 +125,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 3
 let g:syntastic_go_checkers=['go']
-"let g:syntastic_tex_checkers=['']
+let g:syntastic_tex_checkers=['']
 let g:syntastic_python_checkers=['flake8']
-"let g:syntastic_java_checkers=['']
+" let g:syntastic_java_checkers=['']
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1

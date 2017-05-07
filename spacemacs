@@ -27,9 +27,8 @@ values."
      better-defaults
      emacs-lisp
      git
-     fill-column-indicator
-     ;; markdown
-     ;; org
+     markdown
+     org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -90,7 +89,7 @@ values."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner nil
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'.
    ;; (default '(recents projects))
@@ -103,7 +102,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai
+   dotspacemacs-themes '(cyberpunk
+                         monokai
                          spacemacs-dark
                          spacemacs-light
                          solarized-light
@@ -186,10 +186,10 @@ values."
    ;; If non nil a progress bar is displayed when spacemacs is loading. This
    ;; may increase the boot time on some systems and emacs builds, set it to
    ;; nil to boost the loading time. (default t)
-   dotspacemacs-loading-progress-bar t
+   dotspacemacs-loading-progress-bar nil
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup 'yes
+   dotspacemacs-fullscreen-at-startup nil
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
    dotspacemacs-fullscreen-use-non-native nil
@@ -248,10 +248,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-
-  (setq-default neo-show-hidden-files nil)
-  (setq-default neo-smart-open t)
- )
+)
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -263,15 +260,34 @@ you should place your code here."
   (setq linum-format "%3d \u2502 ")
   (global-linum-mode)
 
-  (global-set-key [f2] 'neotree-toggle)
+  (global-set-key [f2] 'neotree-find-project-root)
+  (setq-default neo-show-hidden-files nil)
+  (setq-default neo-smart-open t)
+  (setq-default projectile-switch-project-action 'neotree-projectile-action)
+
+  (set-face-attribute 'default nil :family "Source Code Pro")
+  (set-face-attribute 'default nil :height 165)
 
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 4)
+  (defun neotree-project-dir ()
+    "Open NeoTree using the git root."
+    (interactive)
+    (let ((project-dir (ffip-project-root))
+          (file-name (buffer-file-name)))
+      (if project-dir
+          (progn
+            (neotree-dir project-dir)
+            (neotree-find file-name))
+        (message "Could not find git project root."))))
 
-  (set-fill-column 80)
-  (auto-fill-mode t)
-  (toggle-fill-column-indicator)
+  (global-visual-line-mode t)
 
+  (global-set-key (kbd "C-c C-p") 'neotree-project-dir)
+  ;;(set-fill-column 80)
+  ;;(auto-fill-mode t)
+  ;;(setq turn-on-fci-mode)
+  (turn-on-fci-mode)
  )
 
 ;; Do not write anything past this comment. This is where Emacs will

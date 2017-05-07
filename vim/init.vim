@@ -1,1 +1,1 @@
-/Users/flaviov/.vimrc
+../vimrc
