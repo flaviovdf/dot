@@ -75,7 +75,6 @@ ca Br setlocal spell spelllang=pt_br
 " Pathogen based plugin configs from here on
 
 " Pathogen
-set nocp
 execute pathogen#infect()
 
 " NERDTree
