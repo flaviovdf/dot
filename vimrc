@@ -21,9 +21,9 @@ colorscheme neon
 set background=dark
 
 " tab options
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set smarttab
 set expandtab
 set backspace=indent,eol,start
@@ -53,18 +53,19 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=80
-<<<<<<< HEAD
-=======
 " autocmd BufRead,BufNewFile *.tex set colorcolumn=0
->>>>>>> 779ff4aba6e90867279f6396eeafddcbefe5dd91
 
 " Helper for python code
-autocmd BufRead *.py set smartindent 
-    \ cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd BufRead *.py,*.pyx,*.pxd set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd BufRead *.py,*.pyx,*.pxd set tabstop=4
+autocmd BufRead *.py,*.pyx,*.pxd set softtabstop=4
+autocmd BufRead *.py,*.pyx,*.pxd set shiftwidth=4
+autocmd BufWritePre *.py,*.pyx,*.pxd :%s/\s\+$//e
 
 " Helper for latex
-autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst set spell
-autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst set spell spelllang=en_us
+autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst setl spell
+autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst setl spell spelllang=en_us
+autocmd BufRead,BufNewFile *.tex,*.txt,*.md,*.rst setl noautoindent
 " autocmd BufRead,BufNewFile *.tex set colorcolumn=0
 
 " Brasil spell checking
@@ -119,9 +120,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 3
 let g:syntastic_go_checkers=['go']
-let g:syntastic_tex_checkers=['']
-let g:syntastic_python_checkers=['']
-let g:syntastic_java_checkers=['']
+"let g:syntastic_tex_checkers=['']
+let g:syntastic_python_checkers=['flake8']
+"let g:syntastic_java_checkers=['']
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
