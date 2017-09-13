@@ -12,6 +12,9 @@ Plug 'zchee/deoplete-go'
 Plug 'vim-scripts/dbext.vim'
 Plug 'zchee/deoplete-jedi'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'https://github.com/ludovicchabant/vim-gutentags.git'
+Plug 'lervag/vimtex'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 " Common options
@@ -33,8 +36,10 @@ set mouse=
 " Syntax options
 syntax on
 set hlsearch
-colorscheme neon
 set background=dark
+colorscheme solarized
+" let g:solarized_termcolors=256
+" set t_ut=
 
 " Tab options
 set tabstop=2
@@ -93,9 +98,6 @@ ca Br setlocal spell spelllang=pt_br
 
 " Pathogen based plugin configs from here on
 
-" Pathogen
-execute pathogen#infect()
-
 " NERDTree
 set modifiable
 "autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
@@ -145,6 +147,7 @@ let g:syntastic_go_checkers=['go']
 let g:syntastic_tex_checkers=['']
 let g:syntastic_python_checkers=['flake8']
 " let g:syntastic_java_checkers=['']
+let g:syntastic_tex_checkers=['proselint']
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -153,3 +156,6 @@ let g:airline#extensions#tabline#buffer_idx_mode = 0
 " Neovim
 let g:python_host_prog = '/home/flaviovdf/anaconda3/envs/neovim2/bin/python'
 let g:python3_host_prog = '/home/flaviovdf/anaconda3/envs/neovim3/bin/python'
+
+" Sessions
+nnoremap <leader>s :ToggleWorkspace<CR>
