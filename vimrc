@@ -12,7 +12,6 @@ Plug 'zchee/deoplete-go'
 Plug 'vim-scripts/dbext.vim'
 Plug 'zchee/deoplete-jedi'
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'https://github.com/ludovicchabant/vim-gutentags.git'
 Plug 'lervag/vimtex'
 Plug 'altercation/vim-colors-solarized'
 call plug#end()
@@ -95,8 +94,6 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Brasil spell checking
 ca Br setlocal spell spelllang=pt_br
-
-" Pathogen based plugin configs from here on
 
 " NERDTree
 set modifiable
