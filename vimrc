@@ -5,15 +5,13 @@ Plug 'majutsushi/tagbar'
 Plug 'bling/vim-airline'
 Plug 'fatih/vim-go'
 Plug 'moll/vim-bbye'
-Plug 'moll/vim-bbye'
 Plug 'scrooloose/syntastic'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'zchee/deoplete-go'
 Plug 'vim-scripts/dbext.vim'
 Plug 'zchee/deoplete-jedi'
-Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'lervag/vimtex'
 Plug 'altercation/vim-colors-solarized'
+Plug 'Vimjas/vim-python-pep8-indent'
 call plug#end()
 
 " Common options

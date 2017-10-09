@@ -56,6 +56,7 @@ plugins=(git screen sudo)
 source $ZSH/oh-my-zsh.sh
 source $HOME/dot/aliases.sh
 source $HOME/dot/exports.sh
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 autoload bashcompinit
 bashcompinit
