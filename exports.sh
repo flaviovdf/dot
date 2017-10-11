@@ -12,3 +12,13 @@ export PATH="/home/flaviovdf/anaconda3/bin:$PATH"
 
 # manual ls colors
 export LS_COLORS=$LS_COLORS:'di=0;36:ln=0;34:ex=0;32:mi=0;31'
+
+# set's current working dir for terminals that do not support it
+T=$(basename "/"$(ps -f -p $(cat /proc/$(echo $$)/stat \
+  | cut -d \  -f 4) | tail -1 | sed 's/^.* //'))
+if [[ $T == "yakuake" ]]; then
+  if [[ -e /dev/shm/$USER-yakuake-cwd ]]; then
+    cd "$(cat /dev/shm/$USER-yakuake-cwd)"
+  fi
+  alias cd='function __cd() {cd $* && pwd > /dev/shm/$USER-yakuake-cwd}; __cd'
+fi

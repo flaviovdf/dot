@@ -1,17 +1,17 @@
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'bling/vim-airline'
+Plug 'craigemery/vim-autotag'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'fatih/vim-go'
+Plug 'flazz/vim-colorschemes'
+Plug 'majutsushi/tagbar'
+Plug 'moll/vim-bbye'
 Plug 'Shougo/deoplete.nvim'
 Plug 'scrooloose/nerdtree'
-Plug 'majutsushi/tagbar'
-Plug 'bling/vim-airline'
-Plug 'fatih/vim-go'
-Plug 'moll/vim-bbye'
 Plug 'scrooloose/syntastic'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'zchee/deoplete-go'
-Plug 'vim-scripts/dbext.vim'
-Plug 'zchee/deoplete-jedi'
-Plug 'altercation/vim-colors-solarized'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'zchee/deoplete-go'
+Plug 'zchee/deoplete-jedi'
 call plug#end()
 
 " Common options
@@ -34,9 +34,7 @@ set mouse=
 syntax on
 set hlsearch
 set background=dark
-colorscheme solarized
-" let g:solarized_termcolors=256
-" set t_ut=
+colorscheme neon
 
 " Tab options
 set tabstop=2
@@ -126,7 +124,6 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_max_files = 0
-map ; :CtrlPBuffer<CR>
 set wildmenu
 
 " Syntastic
@@ -139,9 +136,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 3
 let g:syntastic_go_checkers=['go']
-let g:syntastic_tex_checkers=['']
 let g:syntastic_python_checkers=['flake8']
-" let g:syntastic_java_checkers=['']
+let g:syntastic_java_checkers=['javac']
 let g:syntastic_tex_checkers=['proselint']
 
 " Airline
@@ -151,6 +147,3 @@ let g:airline#extensions#tabline#buffer_idx_mode = 0
 " Neovim
 let g:python_host_prog = '/home/flaviovdf/anaconda3/envs/neovim2/bin/python'
 let g:python3_host_prog = '/home/flaviovdf/anaconda3/envs/neovim3/bin/python'
-
-" Sessions
-nnoremap <leader>s :ToggleWorkspace<CR>
