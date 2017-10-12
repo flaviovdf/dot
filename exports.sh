@@ -14,6 +14,7 @@ export PATH="/home/flaviovdf/anaconda3/bin:$PATH"
 export LS_COLORS=$LS_COLORS:'di=0;36:ln=0;34:ex=0;32:mi=0;31'
 
 # set's current working dir for terminals that do not support it
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
 T=$(basename "/"$(ps -f -p $(cat /proc/$(echo $$)/stat \
   | cut -d \  -f 4) | tail -1 | sed 's/^.* //'))
 if [[ $T == "yakuake" ]]; then
@@ -21,4 +22,5 @@ if [[ $T == "yakuake" ]]; then
     cd "$(cat /dev/shm/$USER-yakuake-cwd)"
   fi
   alias cd='function __cd() {cd $* && pwd > /dev/shm/$USER-yakuake-cwd}; __cd'
+fi
 fi

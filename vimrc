@@ -6,6 +6,7 @@ Plug 'fatih/vim-go'
 Plug 'flazz/vim-colorschemes'
 Plug 'majutsushi/tagbar'
 Plug 'moll/vim-bbye'
+Plug 'nanotech/jellybeans.vim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
@@ -25,7 +26,6 @@ set incsearch   " do incremental searching
 set scrolloff=3
 set showmode
 set hidden
-set t_Co=256
 
 " Mouse options
 set mouse=
@@ -34,7 +34,7 @@ set mouse=
 syntax on
 set hlsearch
 set background=dark
-colorscheme neon
+colorscheme atom
 
 " Tab options
 set tabstop=2
@@ -124,6 +124,7 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_max_files = 0
+map ; :CtrlPBuffer<CR>
 set wildmenu
 
 " Syntastic
@@ -145,5 +146,5 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 0
 
 " Neovim
-let g:python_host_prog = '/home/flaviovdf/anaconda3/envs/neovim2/bin/python'
-let g:python3_host_prog = '/home/flaviovdf/anaconda3/envs/neovim3/bin/python'
+let g:python_host_prog = '/Users/flaviovdf/anaconda3/envs/neovim2/bin/python'
+let g:python3_host_prog = '/Users/flaviovdf/anaconda3/envs/neovim3/bin/python'

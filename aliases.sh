@@ -1,4 +1,9 @@
-alias ls='ls -p --color'
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  alias ls='ls -p --color'
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  alias ls='ls -p -G'
+fi
+
 alias vim='nvim'
 alias weather='curl http://wttr.in/'
 
