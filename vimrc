@@ -37,7 +37,7 @@ set background=dark
 colorscheme desert256
 hi Normal ctermbg=none
 hi NonText ctermbg=none
-hi Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
+hi Pmenu ctermfg=15 ctermbg=1 guifg=#ffffff guibg=#000000
 
 " Tab options
 set tabstop=2
