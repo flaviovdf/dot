@@ -8,7 +8,7 @@ export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
 
 # added by Anaconda3 4.2.0 installer
-export PATH="/home/flaviovdf/anaconda3/bin:$PATH"
+export PATH="$HOME/anaconda3/bin:$PATH"
 
 # manual ls colors
 export LS_COLORS=$LS_COLORS:'di=0;36:ln=0;34:ex=0;32:mi=0;31'
