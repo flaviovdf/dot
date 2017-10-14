@@ -34,7 +34,10 @@ set mouse=
 syntax on
 set hlsearch
 set background=dark
-colorscheme jellybeans
+colorscheme desert256
+hi Normal ctermbg=none
+hi NonText ctermbg=none
+hi Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
 
 " Tab options
 set tabstop=2
