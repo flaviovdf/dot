@@ -34,7 +34,7 @@ set mouse=
 syntax on
 set hlsearch
 set background=dark
-colorscheme atom
+colorscheme jellybeans
 
 " Tab options
 set tabstop=2
