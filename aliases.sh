@@ -4,6 +4,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias ls='ls -p -G'
 fi
 
+alias top='htop'
 alias vim='nvim'
 alias weather='curl http://wttr.in/'
 
