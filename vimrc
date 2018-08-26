@@ -1,6 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'bling/vim-airline'
 Plug 'craigemery/vim-autotag'
+Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go'
 Plug 'flazz/vim-colorschemes'
@@ -34,10 +35,14 @@ set mouse=
 syntax on
 set hlsearch
 set background=dark
-colorscheme desert256
-hi Normal ctermbg=none
-hi NonText ctermbg=none
-hi Pmenu ctermfg=15 ctermbg=1 guifg=#ffffff guibg=#000000
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+" colorscheme base16-tomorrow-night " Tomorrow-Night-Bright
+" hi Normal ctermbg=none
+" hi NonText ctermbg=none
+" hi Pmenu ctermfg=15 ctermbg=1 guifg=#ffffff guibg=#000000
 
 " Tab options
 set tabstop=2
@@ -63,6 +68,7 @@ autocmd BufReadPost *
 " line numbers
 set number
 highlight LineNr ctermfg=white
+highlight LineNr ctermbg=none
 set numberwidth=1
 set cpoptions+=n
 

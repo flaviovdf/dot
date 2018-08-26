@@ -13,6 +13,10 @@ export PATH="$HOME/anaconda3/bin:$PATH"
 # manual ls colors
 export LS_COLORS=$LS_COLORS:'di=0;36:ln=0;34:ex=0;32:mi=0;31'
 
+# base16
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
 # set's current working dir for terminals that do not support it
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   T=$(basename "/"$(ps -f -p $(cat /proc/$(echo $$)/stat \

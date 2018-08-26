@@ -61,6 +61,24 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 autoload bashcompinit
 bashcompinit
 
+countdown(){
+    date1=$((`gdate +%s` + $1));
+    while [ "$gdate1" -ge `gdate +%s` ]; do
+    ## Is this more than 24h away?
+    days=$(($(($(( $date1 - $(gdate +%s))) * 1 ))/86400))
+    echo -ne "$days day(s) and $(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+    sleep 0.1
+    done
+}
+stopwatch(){
+    date1=`gdate +%s`;
+    while true; do
+    days=$(( $(($(gdate +%s) - date1)) / 86400 ))
+    echo -ne "$days day(s) and $(date -u --date @$((`gdate +%s` - $date1)) +%H:%M:%S)\r";
+    sleep 0.1
+    done
+  }
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
