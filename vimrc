@@ -1,4 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'anntzer/vim-cython'
 Plug 'bling/vim-airline'
 Plug 'craigemery/vim-autotag'
 Plug 'chriskempson/base16-vim'
@@ -39,10 +40,7 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
-" colorscheme base16-tomorrow-night " Tomorrow-Night-Bright
-" hi Normal ctermbg=none
-" hi NonText ctermbg=none
-" hi Pmenu ctermfg=15 ctermbg=1 guifg=#ffffff guibg=#000000
+colorscheme Tomorrow-Night-Eighties
 
 " Tab options
 set tabstop=2
@@ -58,6 +56,7 @@ map <c-d> :Bdelete<CR>
 " indent options
 set autoindent
 filetype plugin indent on
+
 
 " these lines makes vim return the cursor to last file position
 autocmd BufReadPost *
@@ -79,6 +78,8 @@ set nolist  " list disables linebreak
 set textwidth=79
 set formatoptions-=t
 set colorcolumn=80
+hi ColorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+" hi Pmenu cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 
 " Helper for python code
 autocmd BufRead,BufNewFile *.py,*.pyx,*.pxd set tabstop=4
@@ -149,11 +150,14 @@ let g:syntastic_go_checkers=['go']
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_java_checkers=['javac']
 let g:syntastic_tex_checkers=['proselint']
+let g:syntastic_cpp_include_dirs = ['include', 'third_party']
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 0
 
 " Neovim
-let g:python_host_prog = '/Users/flaviovdf/anaconda3/envs/neovim2/bin/python'
-let g:python3_host_prog = '/Users/flaviovdf/anaconda3/envs/neovim3/bin/python'
+"let g:python_host_prog = '/Users/flaviovdf/anaconda3/envs/neovim2/bin/python'
+"let g:python3_host_prog = '/Users/flaviovdf/anaconda3/envs/neovim3/bin/python'
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python'
