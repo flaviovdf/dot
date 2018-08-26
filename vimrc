@@ -36,11 +36,10 @@ set mouse=
 syntax on
 set hlsearch
 set background=dark
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
+if $TERM !~# "konsole.*"
+    let base16colorspace=256
 endif
-colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow-Night
 
 " Tab options
 set tabstop=2
@@ -157,7 +156,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 0
 
 " Neovim
-"let g:python_host_prog = '/Users/flaviovdf/anaconda3/envs/neovim2/bin/python'
-"let g:python3_host_prog = '/Users/flaviovdf/anaconda3/envs/neovim3/bin/python'
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python'
+let g:python_host_prog = '/Users/flaviovdf/anaconda3/envs/neovim2/bin/python'
+let g:python3_host_prog = '/Users/flaviovdf/anaconda3/envs/neovim3/bin/python'
+" let g:python_host_prog = '/usr/bin/python'
+" let g:python3_host_prog = '/usr/bin/python'
