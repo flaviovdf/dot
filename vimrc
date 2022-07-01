@@ -115,8 +115,6 @@ let NERDTreeWinSize = 16
 map <F3> :TagbarToggle<CR>
 let g:tagbar_width=16
 
-" Autocomplete
-
 " vim-go
 let g:go_fmt_autosave = 0
 let g:go_doc_keywordprg_enabled = 0
@@ -154,8 +152,8 @@ let g:syntastic_cpp_include_dirs = ['include', 'third_party']
 
 " Jedi
 let g:jedi#popup_on_dot = 0
-let g:jedi#show_call_signatures = 2
-
+let g:jedi#use_splits_not_buffers = "left"
+let g:jedi#max_doc_height = 5
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
