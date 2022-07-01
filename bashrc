@@ -2,7 +2,6 @@
 
 # Path and others
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="/Users/flaviov/anaconda3/bin:$PATH"
 
 # Path to the bash it configuration
 export BASH_IT="$HOME/.bash_it"

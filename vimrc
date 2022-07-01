@@ -4,17 +4,17 @@ Plug 'bling/vim-airline'
 Plug 'craigemery/vim-autotag'
 Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'davidhalter/jedi-vim'
 Plug 'fatih/vim-go'
 Plug 'flazz/vim-colorschemes'
+Plug 'junegunn/fzf'
 Plug 'majutsushi/tagbar'
 Plug 'moll/vim-bbye'
 Plug 'nanotech/jellybeans.vim'
-Plug 'Shougo/deoplete.nvim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'zchee/deoplete-go'
-Plug 'zchee/deoplete-jedi'
+Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
 " Common options
@@ -74,9 +74,9 @@ set cpoptions+=n
 set wrap
 set linebreak
 set nolist  " list disables linebreak
-set textwidth=79
+set textwidth=59
 set formatoptions-=t
-set colorcolumn=80
+set colorcolumn=60
 hi ColorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 " hi Pmenu cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 
@@ -109,15 +109,13 @@ map <F2> :NERDTreeToggle<CR>
     \    q |
     \ endif
 let NERDTreeQuitOnOpen = 0
+let NERDTreeWinSize = 16
 
 " Tags
 map <F3> :TagbarToggle<CR>
-let g:tagbar_width=30
+let g:tagbar_width=16
 
 " Autocomplete
-let g:deoplete#enable_at_startup = 1
-autocmd InsertLeave * if pumvisible() == 0 | pclose | endif
-set completeopt-=preview
 
 " vim-go
 let g:go_fmt_autosave = 0
@@ -133,14 +131,16 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_max_files = 0
-map ; :CtrlPBuffer<CR>
 set wildmenu
+
+" FZF
+map ; :FZF<CR>
 
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
@@ -149,14 +149,18 @@ let g:syntastic_go_checkers=['go']
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_java_checkers=['javac']
 let g:syntastic_tex_checkers=['proselint']
+let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_include_dirs = ['include', 'third_party']
+
+" Jedi
+let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = 2
+
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 0
 
 " Neovim
-let g:python_host_prog = '/Users/flaviovdf/anaconda3/envs/neovim2/bin/python'
-let g:python3_host_prog = '/Users/flaviovdf/anaconda3/envs/neovim3/bin/python'
-" let g:python_host_prog = '/usr/bin/python'
-" let g:python3_host_prog = '/usr/bin/python'
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python'
