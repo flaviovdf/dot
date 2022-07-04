@@ -14,7 +14,6 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
 " Common options
@@ -147,13 +146,12 @@ let g:syntastic_go_checkers=['go']
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_java_checkers=['javac']
 let g:syntastic_tex_checkers=['proselint']
-let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler='clang++'
 let g:syntastic_cpp_include_dirs = ['include', 'third_party']
 
 " Jedi
-let g:jedi#popup_on_dot = 0
-let g:jedi#use_splits_not_buffers = "left"
-let g:jedi#max_doc_height = 5
+set previewheight=5
+let g:jedi#popup_on_dot = 1
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
